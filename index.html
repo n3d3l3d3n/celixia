@@ -9,38 +9,45 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: #505050;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background: #000;
+            overflow: hidden;
         }
+
+        /* 🎥 Vidéo en background */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Conteneur des liens */
         .container {
-            background: #155c6c;
+            background: rgba(21, 92, 108, 0.65); /* semi-transparent */
             width: 90%;
             max-width: 420px;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(4px);
             text-align: center;
+            margin: 0 auto;
+            margin-top: 60px;
         }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
+
         h1 {
-             color: #ffffff;
-            
+            color: #ffffff;
             margin: 10px 0;
             font-size: 26px;
         }
+
         p {
             color: #ffffff;
             margin-bottom: 25px;
         }
+
         .link {
             display: block;
             padding: 14px 20px;
@@ -52,21 +59,28 @@
             font-size: 18px;
             transition: 0.2s;
         }
+
         .link:hover {
             background: #ffffff;
+            color: #155c6c;
         }
     </style>
 </head>
 <body>
-    <div class="img">
-        <img src=https://i.imgur.com/PceGndH.png" class="img"  />
+
+    <!-- 🎥 Video Background -->
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="https://i.imgur.com/03H6gi2.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
         <h1>Celixia</h1>
         <p>Welcome To Celixia Stores.</p>
 
         <a href="https://www.celixia.shop" class="link">Watchs</a>
         <a href="https://www.celixia.info" class="link">Smoke accessories</a>
         <a href="https://www.celixia.online" class="link">Clothing store</a>
-       
     </div>
+
 </body>
 </html>
