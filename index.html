@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Celixia Linktree</title>
+
     <style>
         html, body {
             height: 100%;
@@ -17,10 +18,10 @@
             overflow-x: hidden;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
         }
 
-        /* 🎥 Vidéo en background */
+        /* 🎥 Video background */
         .video-bg {
             position: fixed;
             inset: 0;
@@ -29,10 +30,10 @@
             object-fit: cover;
             object-position: center;
             z-index: 0;
-            filter: contrast(1.25) brightness(0.85) saturate(1.15) blur(0.3px);
+            filter: contrast(1.2) brightness(0.85) saturate(1.1);
         }
 
-        /* 🖤 Overlay pour lisibilité */
+        /* Semi-transparent overlay */
         .overlay {
             position: fixed;
             inset: 0;
@@ -41,85 +42,72 @@
             pointer-events: none;
         }
 
-        /* Conteneur des liens */
-        .container {
-            position: relative;
-            z-index: 2;
-            background: rgba(21, 92, 108, 0.70);
-            width: 90%;
-            max-width: 420px;
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(6px);
-            text-align: center;
-            margin-top: 65vh;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        /* Cadres gris du bas */
+        .bottom-boxes {
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            z-index: 3;
         }
 
-        h1 {
-            color: #ffffff;
-            margin: 10px 0;
-            font-size: 26px;
+        .box {
+            width: 30%;
+            max-width: 450px;
+            height: 100px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
         }
 
-        p {
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        a.link {
-            display: block;
-            background: rgba(255,255,255,0.15);
+        .box a {
             color: #fff;
             text-decoration: none;
-            padding: 12px 20px;
-            margin: 10px 0;
-            border-radius: 12px;
-            transition: background 0.3s, transform 0.2s;
+            font-size: 22px;
             font-weight: bold;
         }
 
-        a.link:hover {
-            background: rgba(255,255,255,0.35);
-            transform: scale(1.05);
-        }
-
-        /* Responsive mobile */
-        @media (max-width: 480px) {
-            .container {
-                margin-top: 50vh;
-                padding: 20px;
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .bottom-boxes {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
             }
-
-            h1 {
-                font-size: 22px;
-            }
-
-            a.link {
-                padding: 10px 15px;
-                font-size: 16px;
+            .box {
+                width: 90%;
+                height: 80px;
             }
         }
     </style>
 </head>
-<body>
-    <!-- Vidéo background -->
-  
-<video autoplay muted loop playsinline class="video-bg">
-    <source src="https://res.cloudinary.com/dk2vcuazz/video/upload/v1763501750/Create_landing_linktree_202511181634_e6k9nm.mp4">
 
+<body>
+
+    <!-- 🎥 Video background (plays once, no loop) -->
+    <video autoplay muted playsinline class="video-bg">
+        <source src="https://res.cloudinary.com/dk2vcuazz/video/upload/v1763501750/Create_landing_linktree_202511181634_e6k9nm.mp4" type="video/mp4">
     </video>
 
-    <!-- Overlay -->
+    <!-- Dark overlay -->
     <div class="overlay"></div>
 
-    <!-- Conteneur central -->
-    <div class="container">
-        <h1>Celixia</h1>
-        <p>Welcome to Celixia Stores</p>
-        <a href="https://www.celixia.shop" class="link">Watchs</a>
-        <a href="https://www.celixia.info" class="link">Smoker Accessories</a>
-        <a href="https://www.celixia.online" class="link">Contact</a>
+    <!-- Three bottom boxes with text + links -->
+    <div class="bottom-boxes">
+        <div class="box">
+            <a href="https://www.celixia.shop">Watchs</a>
+        </div>
+        <div class="box">
+            <a href="https://www.celixia.info">Smoker Accessories</a>
+        </div>
+        <div class="box">
+            <a href="https://www.celixia.online">Contact</a>
+        </div>
     </div>
+
 </body>
 </html>
