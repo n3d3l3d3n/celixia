@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Celixia Linktree</title>
 
     <style>
@@ -34,14 +34,15 @@
             z-index: 1;
         }
 
-        /* 🔥 NEW: Proper aligned boxes container */
+        /* ----- BOXES ----- */
         .bottom-boxes {
             position: absolute;
             bottom: 40px;
             width: 100%;
             display: flex;
             justify-content: center;
-            gap: 40px; /* fixed spacing */
+            gap: 40px;
+            padding: 0 20px;
             z-index: 3;
         }
 
@@ -49,8 +50,8 @@
             width: 350px;
             height: 95px;
             background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(4px);
-            border-radius: 10px;
+            backdrop-filter: blur(6px);
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -61,18 +62,32 @@
             text-decoration: none;
             font-size: 22px;
             font-weight: bold;
+            text-align: center;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
+        /* ----- 📱 MOBILE FIX ----- */
+        @media (max-width: 768px) {
+
+            body {
+                overflow-y: auto;
+            }
+
             .bottom-boxes {
                 flex-direction: column;
-                bottom: 80px;
-                gap: 20px;
+                bottom: 40px;
+                gap: 25px;
+                padding: 0 10px;
+                align-items: center;
             }
+
             .box {
-                width: 90%;
+                width: 95%;
+                max-width: 420px;
                 height: 80px;
+            }
+
+            .box a {
+                font-size: 20px;
             }
         }
     </style>
