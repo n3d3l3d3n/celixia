@@ -7,61 +7,53 @@
 
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
+            height: 100%;
             background: #000;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
         /* 🎥 Video background */
         .video-bg {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
             z-index: 0;
-            filter: contrast(1.2) brightness(0.85) saturate(1.1);
         }
 
-        /* Semi-transparent overlay */
+        /* Dark overlay */
         .overlay {
             position: fixed;
             inset: 0;
             background: rgba(0,0,0,0.35);
             z-index: 1;
-            pointer-events: none;
         }
 
-        /* Cadres gris du bas */
+        /* 🔥 NEW: Proper aligned boxes container */
         .bottom-boxes {
-            position: fixed;
+            position: absolute;
             bottom: 40px;
             width: 100%;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 40px; /* fixed spacing */
             z-index: 3;
         }
 
         .box {
-            width: 30%;
-            max-width: 450px;
-            height: 100px;
+            width: 350px;
+            height: 95px;
             background: rgba(255,255,255,0.12);
-            border-radius: 8px;
+            backdrop-filter: blur(4px);
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(4px);
         }
 
         .box a {
@@ -71,11 +63,11 @@
             font-weight: bold;
         }
 
-        /* Mobile responsive */
-        @media (max-width: 600px) {
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
             .bottom-boxes {
                 flex-direction: column;
-                align-items: center;
+                bottom: 80px;
                 gap: 20px;
             }
             .box {
@@ -88,22 +80,23 @@
 
 <body>
 
-    <!-- 🎥 Video background (plays once, no loop) -->
+    <!-- Video -->
     <video autoplay muted playsinline class="video-bg">
         <source src="https://res.cloudinary.com/dk2vcuazz/video/upload/v1763501750/Create_landing_linktree_202511181634_e6k9nm.mp4" type="video/mp4">
     </video>
 
-    <!-- Dark overlay -->
     <div class="overlay"></div>
 
-    <!-- Three bottom boxes with text + links -->
+    <!-- Boxes perfectly aligned -->
     <div class="bottom-boxes">
         <div class="box">
             <a href="https://www.celixia.shop">Watchs</a>
         </div>
+
         <div class="box">
             <a href="https://www.celixia.info">Smoker Accessories</a>
         </div>
+
         <div class="box">
             <a href="https://www.celixia.online">Contact</a>
         </div>
